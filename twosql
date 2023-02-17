@@ -1,0 +1,53 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : mysql
+ Source Server Type    : MySQL
+ Source Server Version : 80028
+ Source Host           : localhost:3306
+ Source Schema         : test
+
+ Target Server Type    : MySQL
+ Target Server Version : 80028
+ File Encoding         : 65001
+
+ Date: 16/06/2022 19:34:40
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `sex` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `addr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `gongs` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `gongsi`(`gongs`) USING BTREE,
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`gongs`) REFERENCES `gongsi` (`yuangong`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 44 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES (2, '刘璃', '1', 'aa', '454151', '张黎');
+INSERT INTO `user` VALUES (3, 'ming', '0', 'cc', '14511', '李华');
+INSERT INTO `user` VALUES (4, 'xia', '1', 'cdddd', '234234', '阿斯顿');
+INSERT INTO `user` VALUES (43, 'lin', '0', 'aaccc', '1111', 'AA');
+INSERT INTO `user` VALUES (46, 'xi', '0', 'aaccc', '234234', 'BB');
+INSERT INTO `user` VALUES (47, '李明', '1', 'aaa', '454151', 'CC');
+INSERT INTO `user` VALUES (52, '零零', '1', 'aa', '234234', NULL);
+INSERT INTO `user` VALUES (55, 'aa', '0', 'c', 'aaa', NULL);
+INSERT INTO `user` VALUES (68, 'dd', '0', 'bb', '111', NULL);
+INSERT INTO `user` VALUES (74, 'aa', '0', 'aa', '1111', NULL);
+INSERT INTO `user` VALUES (75, '111', '0', 'aa', '111', NULL);
+INSERT INTO `user` VALUES (76, 'aa aa', '1', 'aa', '1111', NULL);
+INSERT INTO `user` VALUES (77, '111', '1', 'aa', '111', NULL);
+
+SET FOREIGN_KEY_CHECKS = 1;
